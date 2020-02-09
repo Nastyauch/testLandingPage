@@ -1,0 +1,572 @@
+$main_color: #fff;
+$main_font_family: 'Roboto',
+sans-serif;
+$main_font_size: 14px;
+
+@mixin adaptive_background ($url) {
+    background: $url;
+
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        attachment: fixed;
+        size: cover;
+    }
+}
+
+@mixin button($margin_top:0, $margin_bottom:0, $padding:0) {
+    margin: {
+        top: $margin_top;
+        bottom: $margin_bottom;
+    }
+
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+body {
+    color: $main_color;
+    font-family: $main_font_family;
+    font-size: $main_font_size;
+}
+
+hr {
+    max-width: 1140px;
+}
+
+header {
+    @include adaptive_background(#f9514a url('../img/header_background.jpg'));
+    padding-top: 30px;
+    padding-bottom: 220px;
+
+    @media (max-width: 768px) {
+        padding-bottom: 120px;
+    }
+
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #fff;
+    }
+
+    .navbar-light .navbar-toggler {
+
+        &:hover,
+        &:active,
+        &:visited {
+            box-shadow: none;
+        }
+    }
+
+    @media (min-width: 1200px) {
+
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+    .nav-item {
+        &:last-child {
+            margin: 0;
+        }
+
+        margin-right: 30px;
+
+        @media (max-width: 991px) {
+            margin-top: 15px;
+            margin-right: 0px;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: 400;
+
+            .header__button {
+
+                &:hover,
+                &:active {
+                    box-shadow: 0px 0px 10px #777;
+                }
+
+                @include button();
+
+                @media (max-width: 991px) {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    .content {
+        margin-top: 100px;
+        font-weight: 300;
+
+        @media (max-width: 768px) {
+            margin-top: 50px;
+        }
+
+        .content__title {
+            font-family: 'Dosis', sans-serif;
+            font-weight: 600;
+            font-size: 54px;
+
+            @media (max-width: 768px) {
+                font-size: 35px;
+            }
+        }
+
+        .content__list {
+            list-style-type: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 15px;
+            }
+
+            i {
+                margin-right: 20px;
+            }
+        }
+
+        .start_button {
+
+            &:hover,
+            &:active {
+                box-shadow: 0px 0px 10px #777;
+            }
+
+            @include button(26px);
+            outline: 4px #e5e5e5;
+        }
+    }
+
+}
+
+.features {
+    color: #000;
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    img {
+        margin-right: 20px;
+    }
+
+    .content {
+        p {
+            font-weight: 300;
+            color: #777;
+        }
+
+        .content__title {
+            font-family: 'Dosis', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #000;
+        }
+    }
+}
+
+.dont_leave {
+    color: #000;
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    @media (max-width:977px) {
+        img {
+            width: 280px;
+        }
+    }
+
+    .content {
+        margin-top: 54px;
+        color: #777;
+        font-weight: 300;
+
+        .content__title {
+            font-family: 'Dosis', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .content__description {
+            margin-bottom: 70px;
+        }
+
+        .content__list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 34px;
+
+            li {
+                margin-bottom: 14px;
+                font-weight: 400;
+            }
+
+            i {
+                margin-right: 20px;
+                color: #000;
+            }
+        }
+    }
+}
+
+.screen_shots {
+    padding-bottom: 120px;
+
+    #prev {
+        margin-left: 30px;
+    }
+
+    @media (max-width:1015px) {
+        #prev {
+            margin-left: 1px;
+        }
+    }
+
+    @media (max-width: 977px) {
+
+        #prev,
+        #next {
+            display: none;
+            margin-left: 0;
+        }
+    }
+
+    .title {
+        font-family: 'Dosis', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .description {
+        font-weight: 300;
+        color: #777;
+        margin-bottom: 80px;
+    }
+
+    #carousel {
+        display: none;
+        margin-top: 160px;
+        margin: 0 auto;
+        width: 960px;
+        height: 400px;
+        position: relative;
+        clear: both;
+        background: #FFF;
+
+        @media (min-width:978px) {
+            display: block;
+        }
+
+    }
+
+    //mobile slider
+    .mobile {
+        display: block;
+
+        @media (min-width:978px) {
+            display: none;
+        }
+
+        .slider__link:hover,
+        .slider__link:active {
+            cursor: pointer;
+        }
+
+        img {
+            margin: 0 auto;
+
+            @media (max-width: 550px) {
+                width: 100%;
+            }
+        }
+    }
+
+    .slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+    }
+
+
+}
+
+.pricing {
+    padding-bottom: 120px;
+    color: #000;
+
+    .title {
+        font-family: 'Dosis', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .description {
+        font-weight: 300;
+        color: #777;
+        margin-bottom: 80px;
+    }
+
+    .name {
+        font-family: 'Dosis', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .price-block {
+        max-width: 262px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        &:hover,
+        &:active {
+            box-shadow: 3px 3px 30px 2px #ececec;
+
+            .price {
+                background: url(../img/price_bg.png);
+                color: #fff;
+            }
+
+            .buy_button {
+                background: url(../img/price_bg.png);
+                color: #fff;
+                outline: 2px #e5e5e5;
+            }
+        }
+
+        .price {
+            height: 120px;
+            margin-bottom: 80px;
+            font-family: 'Dosis', sans-serif;
+            font-size: 48px;
+            font-weight: 500;
+
+            sup,
+            span {
+                font-size: 18px;
+            }
+
+            .dollar {
+                position: relative;
+                top: -20px;
+            }
+        }
+
+        .content {
+            margin-bottom: 40px;
+            color: #777;
+            font-weight: 300;
+
+            .content__item {
+                border-bottom: 1px dashed #777;
+            }
+        }
+
+        .start_free {
+
+            &:hover,
+            &:active {
+                text-decoration: none;
+                color: #000;
+            }
+
+            display: block;
+            color: #777;
+            font-weight: 300;
+        }
+
+        button {
+
+            &:hover,
+            &:active {
+                box-shadow: 0px 0px 10px #777;
+            }
+
+            @include button(16px, 40px);
+            outline: 1px solid #f4f4f4;
+        }
+    }
+
+}
+
+.video {
+    padding-top: 163px;
+    @include adaptive_background(url('../img/bg_video.jpg'));
+    height: 400px;
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.testimonials {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: #000;
+
+    .title {
+        font-family: 'Dosis', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .description {
+        font-weight: 300;
+        color: #777;
+        margin-bottom: 80px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 0px;
+        }
+    }
+
+    .feedback {
+        background-color: #f7fafc;
+        padding: 35px;
+
+        .content {
+            font-weight: 300;
+        }
+
+        img {
+            margin-right: 18px;
+        }
+
+        .information__fio {
+            font-family: 'Dosis', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .information__work {
+            font-weight: 300;
+        }
+    }
+
+    //slider
+    @media (max-width: 851px) {
+
+        .prev,
+        .next {
+            display: none;
+            margin-left: 0;
+        }
+    }
+
+    .prev {
+        margin-left: 30px;
+    }
+
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+        box-shadow: none;
+    }
+
+    .slick-slide {
+        .feedback {
+            width: 100%;
+        }
+
+    }
+
+    .slick-active {
+        box-shadow: none;
+    }
+
+    .slick-current {
+        box-shadow: 0px 0px 30px #ececec;
+
+        .feedback {
+            background-color: #fff;
+        }
+
+    }
+}
+
+.download {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    @include adaptive_background(#f9514a url('../img/bg_download.jpg'));
+
+    .title {
+        margin-bottom: 75px;
+        font-family: 'Dosis', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .download__link:hover,
+    .download__link:active {
+        text-decoration: none;
+
+        button {
+            box-shadow: 0px 0px 10px #777;
+        }
+    }
+
+    .download__button {
+        background-color: #f7fafc;
+        width: 100%;
+        border: none;
+        text-decoration: none;
+
+        @media (max-width: 991px) {
+            margin-bottom: 10px;
+        }
+
+        .content__title {
+            margin-top: 25px;
+
+            font-family: 'Dosis', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .content__description {
+            font-weight: 300;
+            color: #777;
+        }
+    }
+}
+
+footer {
+    background-color: #222;
+    padding-top: 56px;
+    padding-bottom: 56px;
+
+    .icons {
+        a {
+            color: #fff;
+            margin-right: 22px;
+
+            &:hover,
+            &:active {
+                color: #f31f79;
+            }
+        }
+
+        font-size: 18px;
+    }
+
+    .copiright {
+        font-weight: 300;
+    }
+}
